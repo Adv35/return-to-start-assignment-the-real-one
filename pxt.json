@@ -4,7 +4,10 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "maqueen": "github:dfrobot/pxt-maqueen#v1.5.6",
+        "OLED12864_I2C": "github:makecode-extensions/oled12864_i2c#v1.5.0",
+        "pxt-orientbit": "github:mintgenie/pxt-orientbit#v1.3.1"
     },
     "files": [
         "main.blocks",

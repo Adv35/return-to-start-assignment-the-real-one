@@ -22,6 +22,7 @@ OLED12864_I2C.showNumber(
 OrientBit.getwheelPulseCount(OrientBit.wheelSide.right) - OrientBit.getwheelPulseCount(OrientBit.wheelSide.left),
 1
 )
+maqueen.motorStop(maqueen.Motors.All)
 basic.forever(function () {
     OLED12864_I2C.showString(
     0,

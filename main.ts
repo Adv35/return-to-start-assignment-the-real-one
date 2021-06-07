@@ -1,5 +1,50 @@
+OLED12864_I2C.on()
+OLED12864_I2C.zoom(false)
+OrientBit.resetWheelRotCnt()
+OrientBit.enableEncoder(
+DigitalPin.P0,
+DigitalPin.P1,
+16,
+14
+)
 maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 30)
 maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 40)
+basic.pause(14000)
+OLED12864_I2C.showString(
+0,
+3,
+"diff:",
+1
+)
+OLED12864_I2C.showNumber(
+3,
+4,
+OrientBit.getwheelPulseCount(OrientBit.wheelSide.right) - OrientBit.getwheelPulseCount(OrientBit.wheelSide.left),
+1
+)
 basic.forever(function () {
-	
+    OLED12864_I2C.showString(
+    0,
+    0,
+    "R:",
+    1
+    )
+    OLED12864_I2C.showNumber(
+    3,
+    0,
+    OrientBit.getwheelPulseCount(OrientBit.wheelSide.right),
+    1
+    )
+    OLED12864_I2C.showString(
+    0,
+    1,
+    "L:",
+    1
+    )
+    OLED12864_I2C.showNumber(
+    3,
+    1,
+    OrientBit.getwheelPulseCount(OrientBit.wheelSide.left),
+    1
+    )
 })

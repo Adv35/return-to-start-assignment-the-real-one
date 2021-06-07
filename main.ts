@@ -1,3 +1,4 @@
+let numbervalues = 0
 OLED12864_I2C.init(60)
 OLED12864_I2C.on()
 OLED12864_I2C.zoom(false)
@@ -10,6 +11,14 @@ DigitalPin.P1,
 maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 30)
 maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 40)
 basic.pause(14000)
+let Biggestnumber = OrientBit.getwheelPulseCount(OrientBit.wheelSide.right)
+if (Biggestnumber < OrientBit.getwheelPulseCount(OrientBit.wheelSide.right)) {
+    Biggestnumber = OrientBit.getwheelPulseCount(OrientBit.wheelSide.left)
+    numbervalues = OrientBit.getwheelPulseCount(OrientBit.wheelSide.right)
+} else if (Biggestnumber > OrientBit.getwheelPulseCount(OrientBit.wheelSide.left)) {
+    Biggestnumber = OrientBit.getwheelPulseCount(OrientBit.wheelSide.right)
+    numbervalues = OrientBit.getwheelPulseCount(OrientBit.wheelSide.left)
+}
 OLED12864_I2C.showString(
 0,
 3,
@@ -19,7 +28,7 @@ OLED12864_I2C.showString(
 OLED12864_I2C.showNumber(
 3,
 4,
-OrientBit.getwheelPulseCount(OrientBit.wheelSide.right) - OrientBit.getwheelPulseCount(OrientBit.wheelSide.left),
+Biggestnumber - numbervalues,
 1
 )
 maqueen.motorStop(maqueen.Motors.All)

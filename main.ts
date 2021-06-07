@@ -1,7 +1,6 @@
 OLED12864_I2C.init(60)
 OLED12864_I2C.on()
 OLED12864_I2C.zoom(false)
-OrientBit.resetWheelRotCnt()
 OrientBit.enableEncoder(
 DigitalPin.P0,
 DigitalPin.P1,
